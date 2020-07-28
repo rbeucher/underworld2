@@ -25,4 +25,3 @@ jobs:
       run: |
         echo "1. Hello:${GITHUB_REF}"
         echo "2. ${RELEASE_VERSION}"
-        echo "3. ${ env.RELEASE_VERSION }"
