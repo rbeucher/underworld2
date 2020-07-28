@@ -22,4 +22,4 @@ jobs:
     - name: Get branch name
       run: | 
         echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
-        echo "Hello: ${{GITHUB_REF}}, ${GITHUB_REF}"
+        echo "Hello: ${{ env.RELEASE_VERSION }}"
