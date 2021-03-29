@@ -48,7 +48,9 @@ class Package:
                                 os.path.normpath('/usr/lib/amd64-linux-gnu'),
                                 os.path.normpath('/usr/lib64'),
                                 os.path.normpath('/usr/local/lib'),
-                                os.path.normpath('/usr/local/lib64')]
+                                os.path.normpath('/usr/local/lib64'),
+                                os.path.normpath('/lib'),
+                                os.path.normpath('/lib64')]
         # Setup the dependencies and options.
         self.setup_dependencies()
         self.setup_options()
