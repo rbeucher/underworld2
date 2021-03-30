@@ -1,10 +1,16 @@
+import os
 from config import Package
 
 class libm(Package):
 
     def gen_locations(self):
-#        yield ('/usr/local', ['/usr/local'], ['/usr/local'])
-        yield ('/sysroot', ['/include'], ['/lib', '/lib64'])
+        if 'CONDA_DEFAULT_ENV' in os.environ:
+            conda_env = os.environ['PREFIX']
+            libpath = os.path.join(conda_env,'lib')
+            yield (conda_env, [], [libpath])
+        else:
+            yield ('/usr/local', ['/usr/local'], ['/usr/local'])
+
 
     def gen_envs(self, loc):
         for env in Package.gen_envs(self, loc):
