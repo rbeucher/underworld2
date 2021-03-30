@@ -3,7 +3,7 @@ from config import Package
 class libm(Package):
 
     def gen_locations(self):
-        yield ('/usr/local', ['/usr/local'], ['/usr/local'])
+#        yield ('/usr/local', ['/usr/local'], ['/usr/local'])
         yield ('/', ['/include'], ['/lib', '/lib64'])
 
     def gen_envs(self, loc):
