@@ -164,7 +164,7 @@ if not (GetOption('help') or GetOption('clean')):
     # Copies base environment
     base_env = env.Clone()
 
-    env.ConfigurePackage(packages.libm, required=False)
+    env.ConfigurePackage(packages.libm, required=True)
     env.ConfigurePackage(packages.libXML2)
     env.ConfigurePackage(packages.MPI)
     env.ConfigurePackage(packages.Python, required=True)
