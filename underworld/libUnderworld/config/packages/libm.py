@@ -4,7 +4,7 @@ class libm(Package):
 
     def gen_locations(self):
 #        yield ('/usr/local', ['/usr/local'], ['/usr/local'])
-        yield ('/', ['/include'], ['/lib', '/lib64'])
+        yield ('/sysroot', ['/include'], ['/lib', '/lib64'])
 
     def gen_envs(self, loc):
         for env in Package.gen_envs(self, loc):
