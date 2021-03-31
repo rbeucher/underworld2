@@ -16,6 +16,6 @@ class libm(Package):
     def gen_envs(self, loc):
         for env in Package.gen_envs(self, loc):
             self.headers = ['math.h']
-            if self.find_libraries(loc[2], 'm'):
-                env.PrependUnique(LIBS=['m'])
+            if self.find_libraries(loc[2], 'm-2.12'):
+                env.PrependUnique(LIBS=['m-2.12'])
                 yield env
