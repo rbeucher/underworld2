@@ -62,14 +62,16 @@ def find(name, dirs=[], prefixes=[], suffixes=[], max=0):
     cur = 0
     for d in dirs:
         for n in names:
-            regex = re.compile(n+r"\.?[0-9]?")
+            regex = re.compile(n+r'\.?[0-9]?')
             paths = []
             for _, _, files in os.walk(d):
                 for file in files:
                     if regex.match(file):
                         paths.append(os.path.join(d, file))
             if paths:
+                print(paths)
                 paths.sort()
+                print(paths)
                 yield paths[0]
             if max:
                 cur += 1
