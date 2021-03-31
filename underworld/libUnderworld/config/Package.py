@@ -256,6 +256,7 @@ class Package:
             elif shared_paths is not None:
                 shared_paths += cur_shared_paths
 
+        print(cur_shared_paths)
         if static_paths is None and shared_paths is None:
             log = open('config.log', 'a')
             log.write('  Failed to find static or shared libraries for %s.\n'%repr(self.name))
