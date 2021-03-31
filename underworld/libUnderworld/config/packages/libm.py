@@ -9,6 +9,7 @@ class libm(Package):
             conda_env = os.environ['PREFIX']
             conda_env = os.path.join(conda_env, 'x86_64-conda-linux-gnu/sysroot')
             libpath = os.path.join(conda_env,'lib')
+            print(libpath)
             yield (conda_env, [], [libpath])
         else:
             yield ('/usr/local', ['/usr/local'], ['/usr/local'])
