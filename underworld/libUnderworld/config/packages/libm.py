@@ -4,12 +4,10 @@ from config import Package
 class libm(Package):
 
     def gen_locations(self):
-        print("Calling")
         if 'CONDA_DEFAULT_ENV' in os.environ:
             conda_env = os.environ['PREFIX']
             conda_env = os.path.join(conda_env, 'x86_64-conda-linux-gnu/sysroot')
             libpath = os.path.join(conda_env,'lib')
-            print(libpath)
             yield (conda_env, [], [libpath])
         else:
             yield ('/usr/local', ['/usr/local'], ['/usr/local'])
