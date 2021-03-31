@@ -63,6 +63,7 @@ def find(name, dirs=[], prefixes=[], suffixes=[], max=0):
     for d in dirs:
         for n in names:
             p = os.path.join(d, n)
+            print(p)
             if os.path.exists(p):
                 yield p
                 if max:

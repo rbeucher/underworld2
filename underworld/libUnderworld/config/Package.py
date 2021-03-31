@@ -326,7 +326,6 @@ class Package:
                 # Finally try an empty search followed by locations
                 # specific to the package.
                 for loc in self.gen_locations():
-                    print(loc)
                     if loc is None:
                         continue
                     # Try the generated location on its own first.
