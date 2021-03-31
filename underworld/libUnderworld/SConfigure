@@ -21,8 +21,6 @@ options = [
     ('--cxx', 'CXX', 'C++ compiler', None),
     ('--cflags', 'CFLAGS', 'Flags for the C compiler', None),
     ('--cxxflags', 'CXXFLAGS', 'Flags for the C compiler', '-std=c++11'),
-    ('--eptiming', 'eptiming', 'Enable Entry point timings: \'1\' will enable profiling for proc 0 only \'2\' will enable profiling per proc (previous setup)', 0, 'int'),
-    ('--with-cautious-mode', 'with_cautious_mode', 'Enable extra checking on heavily used functions', 0, 'int'),
 ]
 
 #
@@ -55,16 +53,16 @@ env.AddMethod( UWExit )
 
 env.UsePackage(packages.libm)
 env.UsePackage(packages.libXML2)
-env.UsePackage(packages.Mpi4pyPk)
-env.UsePackage(packages.H5py)
-env.UsePackage(packages.Python)
-env.UsePackage(packages.NumpyPk)
-env.UsePackage(packages.MPI)
-env.UsePackage(packages.PETSc)
+#env.UsePackage(packages.Mpi4pyPk)
+#env.UsePackage(packages.H5py)
+#env.UsePackage(packages.Python)
+#env.UsePackage(packages.NumpyPk)
+#env.UsePackage(packages.MPI)
+#env.UsePackage(packages.PETSc)
 
 # this flag is required to prevent possible issues with AssertMacro.h defining 'check' 
-if platform.system() == 'Darwin':
-    env.MergeFlags('-D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0')
+#if platform.system() == 'Darwin':
+#    env.MergeFlags('-D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0')
 
 
 #
@@ -85,57 +83,6 @@ if not (GetOption('help') or GetOption('clean')):
     else:
         env['prefix'] = os.path.join(env.get('prefix'),'underworld')
 
-    # time profiling of entry points:
-    # 2 - for profiling per proc
-    # 1 - for profiling proc 0 only
-    if env.get('eptiming', None) == 1:
-        env.MergeFlags('-DENABLE_STGERMAIN_LOG=1')
-    elif env.get('eptiming', None) == 2:
-        env.MergeFlags('-DENABLE_STGERMAIN_LOG=2')
-
-
-    # confirm with_geothermal configure
-    if env.get('with_geothermal', None):
-        if os.path.isdir("Geothermal"):
-            print("Checking for Geothermal... yes");
-        else:
-            print("Geothermal not found");
-            env.Exit()
-
-
-    # confirm with_importers configure
-    if env.get('with_importers', None):
-        if os.path.isdir("ImportersToolbox"):
-            print("Checking for Importers toolbox... yes");
-        else:
-            print("Importers toolbox not found");
-            env.Exit()
-
-    # confirm with_solvers configure
-    if env.get('with_solvers', None):
-        if os.path.isdir("Solvers"):
-            print("Checking for Solvers... yes");
-        else:
-            print("Solvers not found");
-            env.Exit()
-
-
-    # confirm with_spherical configure
-    if env.get('with_spherical', None):
-        if os.path.isdir("Spherical"):
-            print("Checking for Spherical... yes");
-        else:
-            print("Spherical not found");
-            env.Exit()
-
-    # confirm with_viscoelastic configure
-    if env.get('with_viscoelastic', None):
-        if os.path.isdir("Viscoelastic"):
-            print("Checking for Viscoelastic... yes");
-        else:
-            print("Viscoelastic not found");
-            env.Exit()
-
     if env.get('with_cautious_mode', None):
         env.MergeFlags('-DCAUTIOUS')
 
@@ -146,8 +93,6 @@ if not (GetOption('help') or GetOption('clean')):
     elif env.get('lib_type', None) == 'static':
         env['shared_libs'] = 0
         env['static_libs'] = 1
-        #env.MergeFlags('-static')
-        #env.AppendUnique(LINKFLAGS=['-static'])
         Package.static = True
     else:
         print(""" 
@@ -165,13 +110,13 @@ if not (GetOption('help') or GetOption('clean')):
     base_env = env.Clone()
 
     env.ConfigurePackage(packages.libm, required=True)
-    env.ConfigurePackage(packages.libXML2)
-    env.ConfigurePackage(packages.MPI)
-    env.ConfigurePackage(packages.Python, required=True)
-    env.ConfigurePackage(packages.PETSc)
-    env.ConfigurePackage(packages.NumpyPk, required=True)
-    env.ConfigurePackage(packages.Mpi4pyPk, required=True)
-    env.ConfigurePackage(packages.H5py, required=True)
+ #   env.ConfigurePackage(packages.libXML2)
+#    env.ConfigurePackage(packages.MPI)
+#    env.ConfigurePackage(packages.Python, required=True)
+#    env.ConfigurePackage(packages.PETSc)
+#    env.ConfigurePackage(packages.NumpyPk, required=True)
+#    env.ConfigurePackage(packages.Mpi4pyPk, required=True)
+#    env.ConfigurePackage(packages.H5py, required=True)
 
     #Squelch swig memory warnings
     env.MergeFlags('-DSWIG_PYTHON_SILENT_MEMLEAK')
