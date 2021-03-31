@@ -68,8 +68,9 @@ def find(name, dirs=[], prefixes=[], suffixes=[], max=0):
                 for file in files:
                     if regex.match(file):
                         paths.append(os.path.join(d, file))
-            paths.sort()
-            yield paths[0]
+            if paths:
+                paths.sort()
+                yield paths[0]
             if max:
                 cur += 1
                 if cur == max:
