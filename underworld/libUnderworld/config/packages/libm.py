@@ -6,7 +6,7 @@ class libm(Package):
     def gen_locations(self):
         if 'CONDA_DEFAULT_ENV' in os.environ:
             conda_env = os.environ['PREFIX']
-            conda_env = os.path.join(conda_env, 'x86_64-conda-linux-gnu/sysroot')
+            #conda_env = os.path.join(conda_env, 'x86_64-conda-linux-gnu/sysroot')
             libpath = os.path.join(conda_env,'lib')
             yield (conda_env, [], [libpath])
         else:
