@@ -1,4 +1,4 @@
-import os, tempfile, glob, re
+import os, tempfile, glob
 from . import conv
 
 _temp_counter = 0
@@ -62,21 +62,14 @@ def find(name, dirs=[], prefixes=[], suffixes=[], max=0):
     cur = 0
     for d in dirs:
         for n in names:
-            regex = re.compile(n+r'\.?[0-9]?')
-            paths = []
-            for _, _, files in os.walk(d):
-                for file in files:
-                    if regex.match(file):
-                        paths.append(os.path.join(d, file))
-            if paths:
-                print(paths)
-                paths.sort()
-                print(paths)
-                yield paths[0]
-            if max:
-                cur += 1
-                if cur == max:
-                    return
+            p = os.path.join(d, n)
+            print(n)
+            if os.path.exists(p):
+                yield p
+                if max:
+                    cur += 1
+                    if cur == max:
+                        return
 
 
 def find_all(names, dirs=[], prefixes=[], suffixes=[]):
