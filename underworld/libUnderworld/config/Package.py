@@ -52,7 +52,7 @@ class Package:
                                 os.path.normpath('/lib'),
                                 os.path.normpath('/lib64'),
                                 os.path.normpath('x86_64-linux-gnu'),
-                                os.path.normpath('x86_64-linux-gnu/sysroot')]
+                                os.path.normpath('x86_64-linux-gnu/sysroot/lib')]
         # Setup the dependencies and options.
         self.setup_dependencies()
         self.setup_options()
