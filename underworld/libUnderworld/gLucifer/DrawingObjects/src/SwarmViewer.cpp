@@ -11,17 +11,17 @@
 #include <mpi.h>
 #include <petsc.h>
 
-#include <Underworld/Function/FunctionIO.hpp>
-#include <Underworld/Function/ParticleCoordinate.hpp>
-#include <Underworld/Function/Function.hpp>
+#include <Underworld/Function/src/FunctionIO.hpp>
+#include <Underworld/Function/src/ParticleCoordinate.hpp>
+#include <Underworld/Function/src/Function.hpp>
 extern "C" {
-#include <StGermain/StGermain.h>
-#include <StgDomain/StgDomain.h>
-#include <StgFEM/StgFEM.h>
-#include <PICellerator/PICellerator.h>
-#include <gLucifer/Base/Base.h>
+#include <StGermain/libStGermain/src/StGermain.h>
+#include <StgDomain/libStgDomain/src/StgDomain.h>
+#include <StgFEM/libStgFEM/src/StgFEM.h>
+#include <PICellerator/libPICellerator/src/PICellerator.h>
+#include <gLucifer/Base/src/Base.h>
 #include "types.h"
-#include <gLucifer/Base/DrawingObject.h>
+#include <gLucifer/Base/src/DrawingObject.h>
 }
 
 #include "SwarmViewer.h"

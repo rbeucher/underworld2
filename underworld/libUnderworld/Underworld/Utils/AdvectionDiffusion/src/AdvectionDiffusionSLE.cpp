@@ -17,8 +17,8 @@
 #include <petsc.h>
 /*
 #include "mpi.h"
-#include <StGermain/StGermain.h>
-#include <StgDomain/StgDomain.h>
+#include <StGermain/libStGermain/src/StGermain.h>
+#include <StgDomain/libStgDomain/src/StgDomain.h>
 #include "StgFEM/Discretisation/Discretisation.h"
 #include "StgFEM/SLE/SystemSetup/SystemSetup.h"
 

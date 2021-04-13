@@ -14,12 +14,12 @@
 #include "Sampler.h"
 #include <iostream>
 
-#include <Underworld/Function/FunctionIO.hpp>
-#include <Underworld/Function/Function.hpp>
-#include <Underworld/Function/Binary.hpp>
-#include <Underworld/Function/Unary.hpp>
-#include <Underworld/Function/MinMax.hpp>
-#include <Underworld/Function/MeshCoordinate.hpp>
+#include <Underworld/Function/src/FunctionIO.hpp>
+#include <Underworld/Function/src/Function.hpp>
+#include <Underworld/Function/src/Binary.hpp>
+#include <Underworld/Function/src/Unary.hpp>
+#include <Underworld/Function/src/MinMax.hpp>
+#include <Underworld/Function/src/MeshCoordinate.hpp>
 extern "C" {
 #include <ctype.h>
 }

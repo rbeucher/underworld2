@@ -19,8 +19,8 @@
 #include <stdexcept>
 #include <mpi.h>
 extern "C" {
-#include "pcu/pcu.h"   /* We'll use pcu_assert in Firewall function */
-#include "Base/Foundation/Foundation.h"
+#include "StGermain/pcu/src/pcu.h"   /* We'll use pcu_assert in Firewall function */
+#include "StGermain/Base/Foundation/src/Foundation.h"
 
 #include "types.h"
 #include "shortcuts.h"
