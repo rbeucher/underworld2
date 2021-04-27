@@ -12,6 +12,16 @@ include_directories(${Python3_INCLUDE_DIRS})
 set(CMAKE_INSTALL_RPATH "$ORIGIN")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+# The following compile option is needed because of the extern C include in 
+# some of the cpp files.
+# If not included, the compiler will throw a series of "template with C linkage" errors
+# This seems to be related to XML
+# The libXML headers are pulled in from a C header to be compiled with the C++ compiler and C++ objects
+# The pb seems to be that libXML is ICU enabled and the ICU headers are detecting C++ and including the C++ standard
+# library which is 99% template code.
+# The solution is to pass -DU_SHOW_CPLUSPLUS_API=0 to the CXXFLAGS. 
+# In the present case I chose to apply the flag to the current target (Underworld) and not pollute the
+# system
 add_compile_options(-DU_SHOW_CPLUSPLUS_API=0)
 
 add_library(pcu SHARED)
@@ -118,18 +128,6 @@ add_subdirectory(PICellerator/libPICellerator)
 add_library(Underworld SHARED)
 add_library(Underworld_Toolboxmodule SHARED)
 set_target_properties(Underworld_Toolboxmodule PROPERTIES PREFIX "")
-pkg_check_modules(PETSc PETSc)
-# The following compile option is needed because of the extern C include in 
-# some of the cpp files.
-# If not included, the compiler will throw a series of "template with C linkage" errors
-# This seems to be related to XML
-# The libXML headers are pulled in from a C header to be compiled with the C++ compiler and C++ objects
-# The pb seems to be that libXML is ICU enabled and the ICU headers are detecting C++ and including the C++ standard
-# library which is 99% template code.
-# The solution is to pass -DU_SHOW_CPLUSPLUS_API=0 to the CXXFLAGS. 
-# In the present case I chose to apply the flag to the current target (Underworld) and not pollute the
-# system
-target_compile_options(Underworld PRIVATE "-DU_SHOW_CPLUSPLUS_API=0")
 target_include_directories(Underworld PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(Underworld_Toolboxmodule PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(Underworld PRIVATE ${PETSc_INCLUDE_DIRS})
@@ -155,8 +153,6 @@ add_subdirectory(Underworld/Utils/AdvectionDiffusion)
 add_library(gLucifer SHARED)
 add_library(gLucifer_Toolboxmodule SHARED)
 set_target_properties(gLucifer_Toolboxmodule PROPERTIES PREFIX "")
-pkg_check_modules(PETSc PETSc)
-target_compile_options(gLucifer PRIVATE "-DU_SHOW_CPLUSPLUS_API=0")
 target_include_directories(gLucifer  PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(gLucifer_Toolboxmodule PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(gLucifer  PRIVATE ${LIBXML2_INCLUDE_DIR} ${MPI_C_INCLUDE_DIRS})
@@ -178,7 +174,6 @@ add_subdirectory(gLucifer/libgLucifer)
 add_library(Solvers SHARED)
 add_library(Solvers_Toolboxmodule SHARED)
 set_target_properties(Solvers_Toolboxmodule PROPERTIES PREFIX "")
-pkg_check_modules(PETSc PETSc)
 target_include_directories(Solvers PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(Solvers_Toolboxmodule PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(Solvers PRIVATE ${PETSc_INCLUDE_DIRS})
