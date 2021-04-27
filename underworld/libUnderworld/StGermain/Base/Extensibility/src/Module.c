@@ -42,7 +42,7 @@ void* Module_MapStaticSymbol(Module *self, const char *sym);
 
 const Type Module_Type = "Module";
 
-static const char* MODULE_SUFFIX = "module.";
+static const char* MODULE_SUFFIX = "module";
 static const char* MODULE_GETDEPS_SUFFIX = "_GetDeps";
 
 static const char* MODULE_FILENAME = "fileName";
