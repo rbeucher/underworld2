@@ -5,7 +5,6 @@ find_package (Python COMPONENTS Interpreter Development)
 include(${SWIG_USE_FILE})
 include_directories(${Python3_INCLUDE_DIRS})
 
-PKG_CHECK_MODULES(PETSc PETSc)
 include_directories(../.)
 include_directories(${PETSc_INCLUDE_DIRS})
 include_directories(${LIBXML2_INCLUDE_DIR})
