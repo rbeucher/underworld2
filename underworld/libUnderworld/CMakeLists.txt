@@ -55,7 +55,7 @@ target_compile_definitions(pcu PRIVATE LIB_DIR=".")
 add_subdirectory(StGermain/pcu)
 
 add_library(StGermain SHARED StGermain/src/main.c)
-target_link_libraries(StGermain ${LIBXML2_LIBRARIES} Python3::Python Python3::NumPy MPI::MPI_C)
+target_link_libraries(StGermain ${LIBXML2_LIBRARIES} Python3::Python Python3::NumPy MPI::MPI_C pcu)
 target_compile_definitions(StGermain PRIVATE CURR_MODULE_NAME="StGermain")
 target_compile_definitions(StGermain PRIVATE MODULE_EXT="${CMAKE_SHARED_LIBRARY_SUFFIX}")
 target_compile_definitions(StGermain PRIVATE LIB_DIR=".")
