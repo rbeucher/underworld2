@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(sources ${sources}
+set(sources
     src/AbstractContext.c
     src/Codelet.c
     src/ConditionFunction.c

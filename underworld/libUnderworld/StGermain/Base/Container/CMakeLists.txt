@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(sources ${sources}
+set(sources
     ./src/BTree.c
     ./src/BTreeIterator.c
     ./src/BTreeNode.c

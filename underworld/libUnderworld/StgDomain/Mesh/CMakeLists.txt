@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(sources ${sources}
+set(sources
     src/CartesianGenerator.c
     src/Decomp.c
     src/Finalise.c

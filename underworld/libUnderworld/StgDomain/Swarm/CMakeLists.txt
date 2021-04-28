@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(sources ${sources}
+set(sources
     src/CellLayout.c
     src/ElementCellLayout.c
     src/Finalise.c

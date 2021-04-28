@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(sources ${sources}
+set(sources
     src/BilinearElementType.c
     src/BilinearElementType.h
     src/BilinearInnerElType.c
