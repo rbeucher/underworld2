@@ -40,6 +40,7 @@ requirements:
     - h5py
     - mpi4py
     - petsc
+    - pint
 
 
 about:
