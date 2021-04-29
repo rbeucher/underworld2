@@ -7,7 +7,18 @@ cmake_policy(SET CMP0086 OLD)
 project(Underworld)
 find_package(LibXml2 REQUIRED)
 find_package(MPI REQUIRED)
+
 find_package(Python3 COMPONENTS Interpreter Development NumPy)
+
+set(HDF5_PREFER_PARALLEL true)
+find_package(HDF5 REQUIRED)
+if(NOT HDF5_IS_PARALLEL)
+    message(FATAL_ERROR "HDF5 is not parallel enabled")
+endif()
+message("Forcing installation of parallel h5py")
+set(ENV{HDF5_MPI} "ON")
+execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install --force-reinstall --no-binary=h5py h5py)
+
 
 # Look for PETSc installation. We use pkg-config which, on Linux look for the PETSc.pc
 # or petsc.pc file located in /usr/lib/pkgconfig or /usr/share/pkgconfig
