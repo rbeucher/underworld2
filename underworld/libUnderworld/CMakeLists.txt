@@ -17,7 +17,7 @@ find_package(Python3 COMPONENTS Interpreter Development NumPy)
 # pkg-config --variable pc_path pkg-config
 # This can be modified by prepending the PKG_CONFIG_PATH environment variable
 pkg_check_modules(PETSc PETSc)
-if(NOT DEFINED PETSC_FOUND)
+if(NOT DEFINED PETSc_FOUND)
     message(WARNING "pkg-config could not find PETSc... Looking into PETSC_DIR")
     if(DEFINED ENV{PETSC_DIR})
         # Append PKG_CONFIG PATH and try again
