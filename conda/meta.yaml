@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/underworldcode/underworld2.git
-  git_tag: development
+  git_url: https://github.com/rbeucher/underworld2.git
+  git_tag: cmake
   #url: https://github.com/underworldcode/underworld2/archive/v{{ version }}.tar.gz
   #sha256: 7dd8d0f2cb8f0080e024be7c24faad21f2ab403458f13ad1312a1dd7f5487737
 
@@ -15,6 +15,8 @@ build:
   skip: true  # [win]
   number: 0
   script: {{ PYTHON }} -m pip install . -vv
+  missing_dso_whitelist:
+    - /lib64/libc.so.6
 
 requirements:
   host:
@@ -24,13 +26,11 @@ requirements:
     - {{ compiler('cxx') }}
     - pkg-config
     - swig>=4.0.0
-    - scons>=3.0.0
+    - cmake>=3.16
     - libxml2
     - python
     - numpy>=1.18
     - mpi4py
-    - h5py=*=mpi_*
-    - scipy>=1.4.1
     - petsc>=3.13
 
   run:
@@ -46,7 +46,7 @@ about:
   home: "https://github.com/underworldcode/underworld2"
   license: LGPL-3.0-only
   license_family: LGPL
-  license_file:  LICENSE.txt
+  license_file:  LICENSE.md
   summary: "Geodynamics API"
   doc_url: https://underworld2.readthedocs.io
   dev_url: https://github.com/underworldcode/underworld2/tree/development
