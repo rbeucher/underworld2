@@ -24,7 +24,7 @@
 #include "VectorSurfaceAssemblyTerm_NA__Fn__ni.h"
 
 /* Textual name of this class */
-const Type VectorSurfaceAssemblyTerm_NA__Fn__ni_Type = "VectorSurfaceAssemblyTerm_NA__Fn__ni";
+const Type VectorSurfaceAssemblyTerm_NA__Fn__ni_Type = (char*) "VectorSurfaceAssemblyTerm_NA__Fn__ni";
 
 
 /* Creation implementation / Virtual constructor */

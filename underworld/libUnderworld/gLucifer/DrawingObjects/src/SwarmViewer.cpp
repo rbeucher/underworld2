@@ -27,7 +27,7 @@ extern "C" {
 #include "SwarmViewer.h"
 
 /* Textual name of this class - This is a global pointer which is used for times when you need to refer to class and not a particular instance of a class */
-const Type lucSwarmViewer_Type = "lucSwarmViewer";
+const Type lucSwarmViewer_Type = (char*) "lucSwarmViewer";
 
 
 void _lucSwarmViewer_SetFn( void* _self, Fn::Function* fn_colour, Fn::Function* fn_mask, Fn::Function* fn_size, Fn::Function* fn_opacity ){

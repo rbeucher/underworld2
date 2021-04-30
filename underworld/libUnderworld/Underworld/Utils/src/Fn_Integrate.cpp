@@ -22,7 +22,7 @@
 #include "Fn_Integrate.h"
 
 /* Textual name of this class */
-const Type Fn_Integrate_Type = "Fn_Integrate";
+const Type Fn_Integrate_Type = (char*) "Fn_Integrate";
 
 /* Creation implementation / Virtual constructor */
 Fn_Integrate* _Fn_Integrate_New(  FN_INTEGRATE_DEFARGS  )

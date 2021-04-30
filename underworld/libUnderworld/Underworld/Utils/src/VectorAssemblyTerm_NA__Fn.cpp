@@ -23,7 +23,7 @@
 #include "VectorAssemblyTerm_NA__Fn.h"
 
 /* Textual name of this class */
-const Type VectorAssemblyTerm_NA__Fn_Type = "VectorAssemblyTerm_NA__Fn";
+const Type VectorAssemblyTerm_NA__Fn_Type = (char*) "VectorAssemblyTerm_NA__Fn";
 
 /* Creation implementation / Virtual constructor */
 VectorAssemblyTerm_NA__Fn* _VectorAssemblyTerm_NA__Fn_New(  FORCEASSEMBLYTERM_NA__FN_DEFARGS  )
