@@ -20,7 +20,10 @@ SET(UW_LIBRARIES
     Solvers
     pcu)
 
-set(CMAKE_INSTALL_RPATH "$ORIGIN")
+if(NOT APPLE)
+    set(CMAKE_INSTALL_RPATH "$ORIGIN")
+endif()
+
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 add_compile_options(-DU_SHOW_CPLUSPLUS_API=0)
