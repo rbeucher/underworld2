@@ -29,7 +29,10 @@ if(NOT DEFINED PETSc_FOUND)
     endif()
 endif()
 
-set(CMAKE_INSTALL_RPATH "$ORIGIN")
+if(NOT APPLE)
+    set(CMAKE_INSTALL_RPATH "$ORIGIN")
+endif()
+
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 include_directories(${Python3_INCLUDE_DIRS})
