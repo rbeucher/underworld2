@@ -33,7 +33,7 @@ if(NOT APPLE)
     set(CMAKE_INSTALL_RPATH "\$ORIGIN")
 else()
     set(CMAKE_MACOSX_RPATH 1)
-    set(CMAKE_INSTALL_RPATH @loader_path)
+    set(CMAKE_INSTALL_RPATH "@loader_path")
 endif()
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
